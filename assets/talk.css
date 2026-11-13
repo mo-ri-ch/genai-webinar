@@ -1,0 +1,79 @@
+/* talk.css — styles for this webinar's own activities. Colours only through the shared variables,
+   so both themes work. */
+
+/* The words written so far, and the chances for the next word */
+.nw-text { font-family: var(--hand); font-size: 1.5rem; line-height: 1.4; margin: 10px 0 12px; min-height: 2.1em; }
+.nw-text .new { background: var(--hl-yellow); color: var(--on-hl); border-radius: 3px; padding: 0 3px; }
+.nw-bars { display: grid; gap: 8px; margin-bottom: 12px; }
+.nw-bar { display: grid; grid-template-columns: 7.5em 1fr 3.5em; align-items: center; gap: 10px;
+  padding: 4px 8px; border: 1px solid transparent; border-radius: 6px; background: none; text-align: left; font: inherit; color: var(--ink); }
+button.nw-bar:hover { border-color: color-mix(in srgb, var(--ink) 25%, transparent); background: none; }
+.nw-bar .w { font-family: var(--mono); font-size: 0.95rem; }
+.nw-bar .track { display: block; height: 14px; background: color-mix(in srgb, var(--ink) 8%, transparent); border-radius: 7px; overflow: hidden; }
+.nw-bar .fill { display: block; height: 100%; width: 0; background: var(--pen); border-radius: 7px; transition: width .35s ease; }
+.nw-bar.top .fill { background: var(--good); }
+.nw-bar .pc { font-family: var(--mono); font-size: 0.9rem; text-align: right; color: var(--pencil); }
+@media (prefers-reduced-motion: reduce) { .nw-bar .fill { transition: none; } }
+
+.example-tag { font-size: 0.85rem; color: var(--pencil); margin: 10px 0 0; }
+
+/* Tokens */
+.tok-input { width: 100%; font: inherit; font-size: 1.05rem; padding: 8px 10px; border: 2px solid var(--ink);
+  border-radius: 8px; background: var(--paper); color: var(--ink); }
+.tok-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 12px 0; font-family: var(--mono); font-size: 0.95rem; min-height: 2em; }
+.tok-chips span { padding: 2px 6px; border-radius: 4px; color: var(--on-hl); white-space: pre; }
+.tok-chips span:nth-child(5n+1) { background: var(--hl-yellow); }
+.tok-chips span:nth-child(5n+2) { background: var(--hl-blue); }
+.tok-chips span:nth-child(5n+3) { background: var(--hl-green); }
+.tok-chips span:nth-child(5n+4) { background: var(--hl-pink); }
+.tok-chips span:nth-child(5n+5) { background: var(--hl-orange); }
+.tok-count { font-family: var(--head); font-size: 1.25rem; }
+
+/* Temperature */
+.temp-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 6px 0 12px; }
+.temp-row input[type=range] { flex: 1; min-width: 160px; accent-color: var(--pen); }
+.temp-row output { font-family: var(--mono); min-width: 3.2em; }
+.samples { font-family: var(--hand); font-size: 1.1rem; line-height: 1.5; margin: 10px 0 0; padding-left: 1.2em; }
+
+/* A prompt and the model's reply */
+.prompt-box { font-family: var(--mono); font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; word-break: break-word;
+  background: var(--paper); border: 1px dashed color-mix(in srgb, var(--ink) 35%, transparent); border-radius: 6px; padding: 10px 12px; margin: 8px 0; }
+.prompt-box .add { background: var(--hl-green); color: var(--on-hl); border-radius: 3px; }
+.prompt-box .tag { color: var(--redpen); }
+.reply { position: relative; background: var(--note-blue); color: var(--ink); border-radius: 2px 2px 6px 2px; padding: 12px 14px 12px 40px;
+  margin: 8px 0 0; font-size: 0.98rem; line-height: 1.5; white-space: pre-wrap; }
+.reply::before { content: "🤖"; position: absolute; left: 12px; top: 11px; }
+.reply.code { font-family: var(--mono); font-size: 0.88rem; }
+.label-sm { font-family: var(--head); font-size: 1.05rem; color: var(--pencil); margin: 10px 0 0; }
+
+/* A row of choices where one is on */
+.seg { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* Checkboxes that add to a prompt */
+.adds { display: grid; gap: 6px; margin: 8px 0; }
+.adds label { display: flex; gap: 8px; align-items: baseline; cursor: pointer; }
+.adds input { accent-color: var(--pen); }
+.guesses { font-family: var(--head); font-size: 1.3rem; }
+.guesses b { color: var(--redpen); }
+.guesses.zero b { color: var(--good); }
+
+/* Steps of a chain */
+.chain { display: grid; gap: 10px; }
+.chain .step { border-left: 4px solid var(--pen); padding: 4px 0 4px 14px; }
+.chain .step[hidden] { display: block; visibility: hidden; }
+.chain .step h3 { font-size: 1.25rem; margin: 0 0 4px; }
+.chain .step p { margin: 0; font-size: 0.95rem; white-space: pre-wrap; }
+
+/* Numbered how-to steps */
+.howto { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 10px; counter-reset: s; }
+.howto li { counter-increment: s; display: grid; grid-template-columns: 2em 1fr; gap: 8px; align-items: start; }
+.howto li::before { content: counter(s); font-family: var(--head); font-size: 1.3rem; color: var(--redpen);
+  border: 2px solid currentColor; border-radius: 50%; width: 1.5em; height: 1.5em; display: grid; place-items: center; line-height: 1; }
+
+/* First-week checklist */
+.week { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 8px; }
+.week label { display: grid; grid-template-columns: 1.4em 5.5em 1fr; gap: 8px; align-items: baseline; cursor: pointer; }
+.week input { accent-color: var(--good); }
+.week .day { font-family: var(--head); font-size: 1.1rem; color: var(--redpen); }
+.week input:checked ~ span:last-child { text-decoration: line-through; color: var(--pencil); }
