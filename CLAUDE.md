@@ -1,6 +1,9 @@
 # GenAI webinar — notes for Claude
 
 - Follow study-notebook-design/GUIDELINES.md (Rishal's design advice).
-- Webinars are unlisted: keep `<meta name="robots" content="noindex, nofollow">` on every page.
-  gradlabs.in serves this at /learn/genai-webinar/ but must not list it on the home page or dashboard.
+- Run for another organisation; never name it anywhere. Stand-alone (Rishal, 13 Nov 2026): no links to gradlabs.in, the
+  other courses or any Gradient AI Labs page, and no Gradient AI Labs branding. Not served on gradlabs.in.
+- Unlisted: keep `<meta name="robots" content="noindex, nofollow">` on every page. Shared by link:
+  https://mo-ri-ch.github.io/genai-webinar/
+- No date, time or speaker: the session can repeat.
 - After the session: add the slides and recording links in assets/course.js (`href: null` shows "Soon").

@@ -29,12 +29,7 @@ window.COURSE = {
       { title: "How LLMs work", sum: "Next-word guessing, tokens, temperature and made-up answers.", href: "lessons/talk.html#1" },
       { title: "Six prompt techniques", sum: "Before and after, for each one, plus a practice page.", href: "lessons/talk.html#5" },
       { title: "Try it in code", sum: "The live demo, ready to run in Colab.", href: "lessons/talk.html#12" },
-      { title: "Next steps", sum: "Pitfalls, a plan for your first week, and where to learn more.", href: "lessons/talk.html#14" },
-    ],
-    next: [
-      { title: "Build a Tiny LLM", sum: "Write a working language model, line by line.", href: "https://gradlabs.in/learn/tiny-llm/" },
-      { title: "Transformers & LLMs", sum: "How attention and transformers really work.", href: "https://gradlabs.in/learn/transformers/" },
-      { title: "Build an AI Agent", sum: "Teach a model to think, use tools and get things done.", href: "https://gradlabs.in/learn/agents/" },
+      { title: "Next steps", sum: "Pitfalls to avoid and a plan for your first week.", href: "lessons/talk.html#14" },
     ],
   },
 };

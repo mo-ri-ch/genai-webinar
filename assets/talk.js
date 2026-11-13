@@ -6,7 +6,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const reset = (id, fn) => { if (typeof addReset === "function" && $(id)) addReset(id, fn); };
 
 // Colab links
-document.querySelectorAll("#colabBtn, #colabLink").forEach(a => { if (window.COURSE && COURSE.colab) a.href = COURSE.colab; });
+document.querySelectorAll("#colabBtn, #colabLink, .colab-link").forEach(a => { if (window.COURSE && COURSE.colab) a.href = COURSE.colab; });
 
 // Bars: [[word, chance], …] → rows; clickable when onPick is given
 function drawBars(box, options, onPick) {
