@@ -19,7 +19,6 @@ window.COURSE = {
 
   // Read by webinar.js on the home page
   webinar: {
-    when: ["Saturday, 14 Nov 2026", "[Time] IST", "[Speaker]"],
     resources: [
       { icon: "📖", title: "The talk", sum: "Every idea from the session, with something to try on each page.", href: "lessons/talk.html", open: "Start" },
       { icon: "🧪", title: "Colab notebook", sum: "Call a real model and turn messy text into JSON. Free with a Gemini key.", href: COLAB },
