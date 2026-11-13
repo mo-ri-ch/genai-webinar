@@ -223,6 +223,27 @@
         </ol>
       </div>
       <p class="say">Never paste a key into the code itself. Anyone who sees the notebook would get it.</p>
+      <p class="say"><b>Prefer no code?</b> Open <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a>, sign in with Google, and paste any prompt from this talk into the chat.</p>
+    </section>
+
+    <section class="part" data-title="✏️ Quick basics: Python">
+      <h2>✏️ Quick basics: just enough Python</h2>
+      <p class="say">The demo code uses only four Python ideas. You don't need to write them, just recognise them.</p>
+      <div class="cards basics">
+        <div class="card"><h3>A variable</h3><p>A name for a value.</p>
+<pre><code>ticket = "My invoice is wrong"</code></pre></div>
+        <div class="card"><h3>A string</h3><p>Text in quotes. An <b>f-string</b> has {slots} that Python fills in.</p>
+<pre><code>f"&lt;ticket&gt;{ticket}&lt;/ticket&gt;"
+<span class="c"># &lt;ticket&gt;My invoice is wrong&lt;/ticket&gt;</span></code></pre></div>
+        <div class="card"><h3>A function</h3><p>A named recipe. <code>def</code> makes one; calling it runs it.</p>
+<pre><code>def shout(text):
+    return text.upper()
+
+shout("hi")   <span class="c"># "HI"</span></code></pre></div>
+        <div class="card"><h3>JSON → data</h3><p><code>json.loads</code> turns JSON text into data your code can read.</p>
+<pre><code>data = json.loads('{"urgency": "high"}')
+data["urgency"]   <span class="c"># "high"</span></code></pre></div>
+      </div>
     </section>
 
     <section class="part" data-title="The demo code">
@@ -232,7 +253,7 @@
 <pre><code>SYSTEM = """You extract support tickets as JSON.
 Return ONLY valid JSON with keys: name, product,
 issue, urgency (low | medium | high).
-Use null for anything missing."""
+Use null when something is missing."""
 
 def extract(ticket):
     reply = ask(SYSTEM, f"&lt;ticket&gt;{ticket}&lt;/ticket&gt;")
@@ -283,6 +304,7 @@ def extract(ticket):
 <script src="https://mo-ri-ch.github.io/study-notebook-design/v1/common.js"></script>
 <script src="https://mo-ri-ch.github.io/study-notebook-design/v1/pen.js"></script>
 <script src="https://mo-ri-ch.github.io/study-notebook-design/v1/guide.js"></script>
+<script src="https://mo-ri-ch.github.io/study-notebook-design/v1/codewalk.js"></script>
 <script src="../assets/talk.js"></script>
 </body>
 </html>

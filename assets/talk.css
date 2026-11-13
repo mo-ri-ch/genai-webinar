@@ -84,3 +84,9 @@ button.nw-bar:hover { border-color: color-mix(in srgb, var(--ink) 25%, transpare
 /* Dark theme: light text with a thinner yellow band under it, so the title stays readable */
 :root[data-theme="dark"] .hero h1 .swash { color: var(--ink);
   background: linear-gradient(transparent 80%, color-mix(in srgb, var(--hl-yellow) 75%, transparent) 80%, color-mix(in srgb, var(--hl-yellow) 75%, transparent) 94%, transparent 94%); }
+
+/* Quick basics: code inside the cards */
+.basics pre { margin: 10px 0 0; }
+.basics .card p { margin: 0; }
+.basics pre .copy { display: none; }   /* these snippets are for reading, not copying */
+.basics pre { padding-top: 14px; }
