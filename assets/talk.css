@@ -77,3 +77,10 @@ button.nw-bar:hover { border-color: color-mix(in srgb, var(--ink) 25%, transpare
 .week input { accent-color: var(--good); }
 .week .day { font-family: var(--head); font-size: 1.1rem; color: var(--redpen); }
 .week input:checked ~ span:last-child { text-decoration: line-through; color: var(--pencil); }
+
+/* Home page: the four parts of the talk, two by two */
+@media (min-width: 521px) { #wParts { grid-template-columns: repeat(2, 1fr); max-width: 760px; } }
+
+/* Dark theme: light text with a thinner yellow band under it, so the title stays readable */
+:root[data-theme="dark"] .hero h1 .swash { color: var(--ink);
+  background: linear-gradient(transparent 80%, color-mix(in srgb, var(--hl-yellow) 75%, transparent) 80%, color-mix(in srgb, var(--hl-yellow) 75%, transparent) 94%, transparent 94%); }

@@ -19,12 +19,6 @@ window.COURSE = {
 
   // Read by webinar.js on the home page
   webinar: {
-    resources: [
-      { icon: "📖", title: "The talk", sum: "Every idea from the session, with something to try on each page.", href: "lessons/talk.html", open: "Start" },
-      { icon: "🧪", title: "Colab notebook", sum: "Call a real model and turn messy text into JSON. Free with a Gemini key.", href: COLAB },
-      { icon: "🎞️", title: "Slides", sum: "The deck from the session.", href: null },
-      { icon: "🎥", title: "Recording", sum: "Posted here after the session.", href: null },
-    ],
     parts: [
       { title: "How LLMs work", sum: "Next-word guessing, tokens, temperature and made-up answers.", href: "lessons/talk.html#1" },
       { title: "Six prompt techniques", sum: "Before and after, for each one, plus a practice page.", href: "lessons/talk.html#5" },
