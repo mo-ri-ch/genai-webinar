@@ -12,5 +12,3 @@ how LLMs work, six prompt techniques with before-and-after activities, and a dem
 - `notebooks/genai_webinar_demo.ipynb` — the live demo, works with Gemini (free), Claude or OpenAI
 
 [Open the demo in Colab](https://colab.research.google.com/github/mo-ri-ch/genai-webinar/blob/main/notebooks/genai_webinar_demo.ipynb)
-
-Built on [study-notebook-design](https://github.com/mo-ri-ch/study-notebook-design) (`starter-webinar/`).

@@ -1,8 +1,8 @@
 # GenAI webinar — notes for Claude
 
 - Follow study-notebook-design/GUIDELINES.md (Rishal's design advice).
-- Run for another organisation; never name it anywhere. Stand-alone (Rishal, 13 Nov 2026): no links to gradlabs.in, the
-  other courses or any Gradient AI Labs page, and no Gradient AI Labs branding. Not served on gradlabs.in.
+- Stand-alone (Rishal, 13 Nov 2026): no links to other sites or courses, no branding, and no company names
+  anywhere (pages, notebook, README, commit messages). Served only from the link below.
 - Unlisted: keep `<meta name="robots" content="noindex, nofollow">` on every page. Shared by link:
   https://mo-ri-ch.github.io/genai-webinar/
 - No date, time or speaker: the session can repeat.
