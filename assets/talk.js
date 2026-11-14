@@ -232,10 +232,10 @@ function seg(id, labels, onChange, start = 0) {
 (function chain() {
   const box = $("chain"); if (!box) return;
   const STEPS = [
-    ["The notes", "mon mtg: launch moved to 3 dec (design late). ravi fixes login bug by fri. need new screenshots - anu. budget ok. next mtg thu"],
-    ["Prompt 1 · Summarise", "Launch moved to 3 Dec because design is late. Budget is fine. Next meeting Thursday."],
-    ["Prompt 2 · List the tasks", "• Ravi: fix the login bug, by Friday\n• Anu: new screenshots"],
-    ["Prompt 3 · Write the email", "Hi team, quick update from Monday: launch is now 3 Dec, as design needs more time. Ravi will fix the login bug by Friday, and Anu will make new screenshots. Budget is on track. See you Thursday!"],
+    ["The messy notes", "mon mtg: launch moved to 3 dec (design late). ravi fixes login bug by fri. need new screenshots - anu. budget ok. next mtg thu"],
+    ["Prompt 1: “Summarise these notes.”", "→ Launch moved to 3 Dec because design is late. Budget is fine. Next meeting Thursday."],
+    ["Prompt 2: “List who does what, and by when.”", "→ Ravi: fix the login bug, by Friday. Anu: new screenshots."],
+    ["Prompt 3: “Write a short email to the team from the summary and tasks.”", "→ Hi team, quick update from Monday: launch is now 3 Dec, as design needs more time. Ravi will fix the login bug by Friday, and Anu will make new screenshots. Budget is on track. See you Thursday!"],
   ];
   box.innerHTML = STEPS.map(([h, t]) => `<div class="step"><h3>${esc(h)}</h3><p>${esc(t)}</p></div>`).join("");
   const steps = [...box.children];
