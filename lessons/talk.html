@@ -109,10 +109,11 @@
 
     <section class="part" data-title="Role and context">
       <h2>Technique 2: give a role and context</h2>
-      <p class="say">Tell the model who it is and who it's talking to. Most APIs have a <mark>system prompt</mark> for this: instructions that hold for the whole conversation.</p>
+      <p class="say">Tell the model who it is and who it's talking to. You do this in the <mark>system prompt</mark>: instructions that hold for the whole conversation.</p>
+      <p class="say">A prompt has two parts. <b>system:</b> your instructions to the model. <b>user:</b> the question someone asks.</p>
 
       <div class="activity">
-        <div class="do">Same question, different audience. Pick one.</div>
+        <div class="do">Same question, different audience. Pick one, and watch only the green line change.</div>
         <div class="seg" id="roleSeg" role="group" aria-label="Audience"></div>
         <p class="label-sm">The prompt</p>
         <div class="prompt-box" id="roleBox"></div>

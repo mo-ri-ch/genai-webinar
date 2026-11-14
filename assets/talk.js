@@ -154,17 +154,19 @@ function seg(id, labels, onChange, start = 0) {
 // ---------- Technique 2: role and context ----------
 (function role() {
   if (!$("roleSeg")) return;
+  // [button, system prompt, answer text, answer code (optional)]
   const R = [
-    ["a 10-year-old", "You explain things to a curious 10-year-old. Use a short, fun picture. No code.",
-      "Imagine two mirrors facing each other: you see a mirror inside a mirror inside a mirror! Recursion is when something is made of a smaller copy of itself. A function that calls itself, on a smaller problem each time, until the problem is tiny enough to answer."],
+    ["a 10-year-old", "You explain things to a curious 10-year-old. Use a fun picture. No code.",
+      "Think of Russian dolls: open one, and there's a smaller one inside, and another, until the tiniest doll. Recursion is a job that does a smaller copy of itself, again and again, until the job is tiny enough to finish.", ""],
     ["a first-year student", "You are a patient tutor for first-year CS students. Explain with an analogy, then a short Python example.",
-      "Recursion is when a function calls itself on a smaller version of the problem.\nAnalogy: to count people in a queue, ask the person in front how many are ahead, and add 1.\n\ndef count(n):\n    if n == 0:        # the stopping point\n        return 0\n    return 1 + count(n - 1)\n\nEvery recursive function needs a stopping point, or it never ends."],
+      "Recursion is when a function calls itself on a smaller problem, until it reaches a stopping point. Like Russian dolls: each one holds a smaller one, until the smallest.",
+      "def countdown(n):\n    if n == 0:        # stopping point\n        return\n    print(n)\n    countdown(n - 1)"],
     ["a senior engineer", "You are talking to a senior engineer. Be brief and precise.",
-      "A function defined in terms of itself, with a base case. Watch stack depth: Python's default limit is about 1000 frames. For deep inputs prefer iteration or an explicit stack; Python has no tail-call optimisation."],
+      "A function defined in terms of itself, with a base case. Python's default limit is about 1000 frames and there's no tail-call optimisation, so prefer iteration for deep inputs.", ""],
   ];
   const set = seg("roleSeg", R.map(r => r[0]), i => {
-    $("roleBox").innerHTML = `<span class="tag">system:</span> ${esc(R[i][1])}\n<span class="tag">user:</span>   What is recursion?`;
-    $("roleReply").textContent = R[i][2];
+    $("roleBox").innerHTML = `<span class="tag">system:</span> <span class="add">${esc(R[i][1])}</span>\n<span class="tag">user:</span>   What is recursion?`;
+    $("roleReply").innerHTML = esc(R[i][2]) + (R[i][3] ? `<span class="mono-block">${esc(R[i][3])}</span>` : "");
   }, 1);
   reset("roleSeg", () => set(1));
 })();
