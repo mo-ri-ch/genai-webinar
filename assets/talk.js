@@ -231,12 +231,18 @@ function seg(id, labels, onChange, start = 0) {
 // ---------- Technique 6: small steps ----------
 (function chain() {
   const box = $("chain"); if (!box) return;
+  const NOTES = "mon mtg: launch moved to 3 dec (design late). ravi fixes login bug by fri. need new screenshots - anu. budget ok. next mtg thu";
   const STEPS = [
-    ["The messy notes", "mon mtg: launch moved to 3 dec (design late). ravi fixes login bug by fri. need new screenshots - anu. budget ok. next mtg thu"],
+    ["The messy notes", NOTES],
     ["Prompt 1: “Summarise these notes.”", "→ Launch moved to 3 Dec because design is late. Budget is fine. Next meeting Thursday."],
     ["Prompt 2: “List who does what, and by when.”", "→ Ravi: fix the login bug, by Friday. Anu: new screenshots."],
     ["Prompt 3: “Write a short email to the team from the summary and tasks.”", "→ Hi team, quick update from Monday: launch is now 3 Dec, as design needs more time. Ravi will fix the login bug by Friday, and Anu will make new screenshots. Budget is on track. See you Thursday!"],
   ];
+  // One big prompt: the same job in one go. The email drops Anu's task.
+  $("chainBigBox").textContent = "Summarise these meeting notes, list who does what and by when, and write a short email to the team.\n\n" + NOTES;
+  $("chainBigReply").textContent = "Hi team, quick update from Monday: the launch is now 3 Dec because design needs more time. Ravi is fixing the login bug by Friday. Budget is on track. See you Thursday!";
+  $("chainBigNote").textContent = "✗ Anu’s screenshots went missing. Which part of the prompt went wrong? You can’t tell.";
+
   box.innerHTML = STEPS.map(([h, t]) => `<div class="step"><h3>${esc(h)}</h3><p>${esc(t)}</p></div>`).join("");
   const steps = [...box.children];
   let n = 0;
@@ -244,11 +250,16 @@ function seg(id, labels, onChange, start = 0) {
     steps.forEach((s, i) => (s.hidden = i > n));
     $("chainBack").hidden = n === 0;
     $("chainNext").hidden = n === steps.length - 1;
+    $("chainDone").hidden = n !== steps.length - 1;
   }
   $("chainNext").onclick = () => { n = Math.min(n + 1, steps.length - 1); draw(); };
   $("chainBack").onclick = () => { n = Math.max(n - 1, 0); draw(); };
   draw();
-  reset("chain", () => { n = 0; draw(); });
+  const set = seg("chainSeg", ["One big prompt", "Three small prompts"], i => {
+    $("chainBig").hidden = i !== 0;
+    $("chainSmall").hidden = i !== 1;
+  });
+  reset("chainSeg", () => { n = 0; draw(); set(0); });
 })();
 
 // ---------- First week (ticks saved in this browser) ----------

@@ -171,11 +171,20 @@
       <p class="say">One giant prompt that does everything is hard to test and hard to fix. Split the job into small prompts, each feeding the next, like small functions.</p>
 
       <div class="activity">
-        <div class="do">Turn messy meeting notes into an email, one prompt at a time.</div>
-        <div class="chain" id="chain"></div>
-        <div class="row" style="margin-top:12px">
-          <button id="chainBack" hidden>← Back</button>
-          <button class="primary" id="chainNext">Next step →</button>
+        <div class="do">Turn messy meeting notes into an email. Try one big prompt, then three small ones. <span class="example-tag">(Example answers.)</span></div>
+        <div class="seg" id="chainSeg" role="group" aria-label="How to ask"></div>
+        <div id="chainBig">
+          <div class="prompt-box" id="chainBigBox"></div>
+          <div class="reply" id="chainBigReply"></div>
+          <p class="verdict bad" id="chainBigNote"></p>
+        </div>
+        <div id="chainSmall">
+          <div class="chain" id="chain"></div>
+          <div class="row" style="margin-top:12px">
+            <button id="chainBack" hidden>← Back</button>
+            <button class="primary" id="chainNext">Next step →</button>
+          </div>
+          <p class="verdict good" id="chainDone" hidden>✓ Every task made it. And if one hadn't, you'd know which step to fix.</p>
         </div>
       </div>
       <p class="say">For a hard question, you can also ask the model to work step by step before it gives the final answer.</p>

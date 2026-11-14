@@ -98,3 +98,9 @@ button.nw-bar:hover { border-color: color-mix(in srgb, var(--ink) 25%, transpare
 
 /* Code inside a model's answer */
 .reply .mono-block { display: block; margin-top: 10px; font-family: var(--mono); font-size: 0.88rem; line-height: 1.5; }
+
+/* A one-line verdict under an answer: says it in words, not only colour */
+.verdict { margin: 10px 0 0; font-weight: 700; }
+.verdict.bad { color: var(--redpen); }
+.verdict.good { color: var(--good); }
+#chainSmall .chain, #chainBig .prompt-box { margin-top: 12px; }
