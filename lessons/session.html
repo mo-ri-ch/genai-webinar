@@ -250,21 +250,6 @@
     </section>
 
     <!-- ================= Part 3 · Try it in code ================= -->
-    <section class="part" data-title="Run it in Colab">
-      <h2>Run it yourself in Colab</h2>
-      <p class="say">The live demo is a notebook you can run in your browser for free. It works with Gemini, Claude or OpenAI: change one line to switch.</p>
-      <div class="activity">
-        <ol class="howto">
-          <li><span><a class="btn primary" id="colabLink" target="_blank" rel="noopener">Open the notebook in Colab</a></span></li>
-          <li><span>Get a free Gemini API key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>. <span data-peek="The free tier needs no card, but it allows only a small number of calls each day, and Google may use free-tier prompts to improve its products. So don't send private data.">No card needed.</span></span></li>
-          <li><span>In Colab, open 🔑 <b>Secrets</b> on the left. Add <code>GEMINI_API_KEY</code> and turn on notebook access.</span></li>
-          <li><span>Run the cells from top to bottom.</span></li>
-        </ol>
-      </div>
-      <p class="say">Never paste a key into the code itself. Anyone who sees the notebook would get it.</p>
-      <p class="say"><b>Prefer no code?</b> Open <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a>, sign in with Google, and paste any prompt from this page into the chat.</p>
-    </section>
-
     <section class="part" data-title="✏️ Quick basics: Python">
       <h2>✏️ Quick basics: just enough Python</h2>
       <p class="say">The demo code uses only four Python ideas. You don't need to write them, just recognise them.</p>
@@ -298,6 +283,21 @@ def extract(ticket):
     reply = ask(SYSTEM, f"&lt;ticket&gt;{ticket}&lt;/ticket&gt;")
     return json.loads(clean(reply))</code></pre>
       <p class="say">Four techniques in eight lines: a role, exact JSON, null for missing, and the ticket kept in tags.</p>
+    </section>
+
+    <section class="part" data-title="Run it in Colab">
+      <h2>Run it yourself in Colab</h2>
+      <p class="say">The live demo is a notebook you can run in your browser for free. It works with Gemini, Claude or OpenAI: change one line to switch.</p>
+      <div class="activity">
+        <ol class="howto">
+          <li><span><a class="btn primary" id="colabLink" target="_blank" rel="noopener">Open the notebook in Colab</a></span></li>
+          <li><span>Get a free Gemini API key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>. <span data-peek="The free tier needs no card, but it allows only a small number of calls each day, and Google may use free-tier prompts to improve its products. So don't send private data.">No card needed.</span></span></li>
+          <li><span>In Colab, open 🔑 <b>Secrets</b> on the left. Add <code>GEMINI_API_KEY</code> and turn on notebook access.</span></li>
+          <li><span>Run the cells from top to bottom.</span></li>
+        </ol>
+      </div>
+      <p class="say">Never paste a key into the code itself. Anyone who sees the notebook would get it.</p>
+      <p class="say"><b>Prefer no code?</b> Open <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a>, sign in with Google, and paste any prompt from this page into the chat.</p>
     </section>
 
     <!-- ================= Part 4 · Next steps ================= -->
