@@ -174,13 +174,13 @@ function seg(id, labels, onChange, start = 0) {
 // ---------- Technique 3: examples ----------
 (function fewShot() {
   if (!$("fewSeg")) return;
-  const ASK = 'Classify the commit message as feat, fix, docs or chore.\n\n';
-  const EX = '"Add dark mode toggle"        → feat\n"Fix crash on empty cart"     → fix\n"Update README install steps" → docs\n\n';
-  const Q = '"Handle null user in login"   →';
+  const ASK = "Label the review as positive, negative or mixed.\n\n";
+  const EX = '"Loved the biryani, will order again!"   → positive\n"Food arrived cold and late."            → negative\n"Tasty, but far too expensive."          → mixed\n\n';
+  const Q = '"Great pizza, but delivery took an hour." →';
   const set = seg("fewSeg", ["No examples", "Three examples"], i => {
     $("fewBox").innerHTML = esc(ASK) + (i ? `<span class="add">${esc(EX)}</span>` : "") + esc(Q);
-    $("fewReply").textContent = i ? "fix"
-      : "This commit message suggests a change that handles a case where the user is null during login. This would most likely be considered a bug fix, although it could also be seen as an improvement, depending on your team's conventions…";
+    $("fewReply").textContent = i ? "mixed"
+      : "This review is a bit of both! The customer clearly enjoyed the pizza, but waiting an hour for delivery was a letdown. Overall I'd say the feeling is mixed, maybe leaning slightly positive, depending on how much the delay mattered to them…";
   });
   reset("fewSeg", () => set(0));
 })();
@@ -271,7 +271,7 @@ function seg(id, labels, onChange, start = 0) {
     ["Day 2", "Rewrite three prompts you use often, with the six techniques"],
     ["Day 3", "Build a small script that summarises any text file"],
     ["Day 4", "Make it return JSON, and load it in your code"],
-    ["Day 5–7", "Ship a mini project to GitHub: a commit-message writer, flashcard maker or resume reviewer"],
+    ["Day 5–7", "Build a mini project: a review labeller, a flashcard maker or a resume reviewer"],
   ];
   let done = {};
   try { done = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { /* storage blocked */ }
