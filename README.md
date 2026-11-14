@@ -5,8 +5,8 @@
 Stand-alone companion page for the live webinar for students and junior developers:
 how LLMs work, six prompt techniques with before-and-after activities, and a demo you can run in Colab.
 
-- `index.html` — webinar home: resources and the parts of the talk
-- `lessons/talk.html` — the talk, one part per screen
+- `index.html` — webinar home: the parts of the session
+- `lessons/session.html` — the session, page by page
 - `assets/course.js` — webinar settings (date, speaker, resource links)
 - `assets/talk.js`, `assets/talk.css` — this webinar's activities
 - `notebooks/genai_webinar_demo.ipynb` — the live demo, works with Gemini (free), Claude or OpenAI
