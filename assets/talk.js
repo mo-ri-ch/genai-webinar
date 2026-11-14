@@ -123,23 +123,28 @@ function seg(id, labels, onChange, start = 0) {
 // ---------- Technique 1: be specific ----------
 (function specific() {
   const box = $("specBox"); if (!box) return;
+  // [question, answer shown on the checkbox, text added to the prompt, the model's guess, what it does when told]
   const ADDS = [
-    ["Which language?", " in Python 3.12"],
-    ["What's it called?", " named is_valid_email(s: str) -> bool"],
-    ["Which libraries?", ". Use only the re module"],
-    ["Which cases fail?", ". Reject empty strings and spaces"],
-    ["Tests too?", ". Add 5 pytest cases, including edge cases"],
+    ["Which language?", "Python 3.12", " in Python 3.12", "JavaScript", "Python 3.12"],
+    ["What's it called?", "is_valid_email", " named is_valid_email(s: str) -> bool", "checkEmail(e)", "is_valid_email(s: str) -> bool"],
+    ["Which libraries?", "only re", ". Use only the re module", "installs an extra package", "only the re module"],
+    ["Which emails fail?", "empty, or with spaces", ". Reject empty strings and spaces", "doesn't check them", "rejects them"],
+    ["Tests too?", "5 pytest cases", ". Add 5 pytest cases, including edge cases", "none", "5 pytest cases"],
   ];
+  const TOPIC = ["Language", "Name", "Libraries", "Empty or spaces", "Tests"];
   const adds = $("specAdds");
-  adds.innerHTML = ADDS.map(([q], i) => `<label><input type="checkbox" data-i="${i}"> ${esc(q)}</label>`).join("");
+  adds.innerHTML = ADDS.map(([q, a], i) => `<label><input type="checkbox" data-i="${i}"> ${esc(q)} <span class="ans">→ ${esc(a)}</span></label>`).join("");
   function draw() {
     const on = [...adds.querySelectorAll("input")].map(c => c.checked);
-    box.innerHTML = "Write a function" + ADDS.map(([, t], i) => (on[i] ? `<span class="add">${esc(t)}</span>` : "")).join("") +
+    box.innerHTML = "Write a function" + ADDS.map((x, i) => (on[i] ? `<span class="add">${esc(x[2])}</span>` : "")).join("") +
       (on.slice(1).some(Boolean) ? "." : " to validate emails.");
+    $("specReply").innerHTML = ADDS.map((x, i) => on[i]
+      ? `<span class="you">✓ you said</span> ${esc(TOPIC[i])}: ${esc(x[4])}`
+      : `<span class="guess">? guessed</span> ${esc(TOPIC[i])}: ${esc(x[3])}`).join("\n");
     const left = on.filter(x => !x).length;
     const g = $("specGuesses");
     g.classList.toggle("zero", left === 0);
-    g.innerHTML = left ? `Things the model must guess: <b>${left}</b>` : "Things the model must guess: <b>0</b>. Now it knows exactly what you want.";
+    g.innerHTML = left ? `Things the model must guess: <b>${left}</b>` : "Things the model must guess: <b>0</b>. Now you get exactly what you asked for.";
   }
   adds.addEventListener("change", draw);
   draw();

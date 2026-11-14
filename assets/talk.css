@@ -90,3 +90,8 @@ button.nw-bar:hover { border-color: color-mix(in srgb, var(--ink) 25%, transpare
 .basics .card p { margin: 0; }
 .basics pre .copy { display: none; }   /* these snippets are for reading, not copying */
 .basics pre { padding-top: 14px; }
+
+/* Be specific: the answer next to each question, and guessed vs told in the model's reply */
+.adds .ans { color: var(--pencil); }
+.reply .guess { color: var(--redpen); font-weight: 700; }
+.reply .you { color: var(--good); font-weight: 700; }
